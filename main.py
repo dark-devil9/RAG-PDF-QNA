@@ -113,7 +113,7 @@ print(f"[INFO] Using device for embeddings: {device}")
 
 # --- Load SentenceTransformer Model (Unchanged) ---
 print("[INFO] Loading SentenceTransformer model: all-MiniLM-L6-v2...")
-encoder = SentenceTransformer("BAAI/bge-base-en-v1.5", device=device)
+encoder = SentenceTransformer("all-MiniLM-L6-v2", device=device)
 print("[INFO] Model loaded successfully.")
 
 # main.py
@@ -477,4 +477,5 @@ async def run_rag(payload: QuestionPayload):
 # --- MODIFIED: Health Check to reflect new cache name ---
 @app.get("/")
 def health_check():
+
     return {"status": "ok", "cached_docs": list(document_cache.keys())}
